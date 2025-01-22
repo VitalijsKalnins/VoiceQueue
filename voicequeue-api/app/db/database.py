@@ -1,5 +1,5 @@
 from motor.motor_asyncio import AsyncIOMotorClient
-from app.core.config import settings
+from core.config import settings
 
 
 ## Client and DB Globals
@@ -11,8 +11,7 @@ async def mongo_connect():
 
     client = AsyncIOMotorClient(settings.APP_NAME)
     db = client[settings.MONGODB_NAME]
-    print(f"%s : app name")
-    print("Mongo connection established")
+    print(f"{settings.APP_NAME}: Mongo connection established: {db} {settings.model_dump()}")
 
 
 async def mongo_disconnect():
