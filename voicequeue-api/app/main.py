@@ -3,6 +3,9 @@ from contextlib import asynccontextmanager
 
 from app.db.database import mongo_connect, mongo_disconnect
 
+## API Routers
+from app.api.v1.profiles import router as ProfilesRouter
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     ## Connect to mongo client
@@ -12,3 +15,4 @@ async def lifespan(app: FastAPI):
     await mongo_disconnect()
 
 app = FastAPI(lifespan=lifespan)
+app.include_router(ProfilesRouter, prefix="/v1", tags=["profiles"])
