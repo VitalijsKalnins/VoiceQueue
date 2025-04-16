@@ -1,7 +1,9 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    ## Defaults for local dev
+    ## Defaults for local dev env
+    ## Deploy with: "uvicorn app.main:app --env-file app/prod.env" for prod env
+    ## Deploy with: "uvicorn app.main:app --env-file app/staging.env" for staging env
     APP_NAME: str = "VoiceQueue API (Local Env)"
     MONGODB_URI: str = "mongodb://localhost:27017"
     MONGODB_NAME: str = "voicequeue_db"
