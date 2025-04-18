@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
 from app.db.database import mongo_connect, mongo_disconnect
+from app.repository.profiles import profiles_repository
 
 ## API Routers
 from app.api.v1.profiles import router as ProfilesRouter
