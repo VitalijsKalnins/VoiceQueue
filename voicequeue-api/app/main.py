@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
 from app.db.database import mongo_connect, mongo_disconnect
-from app.repository.profiles import profiles_repository
+from app.service.profiles import service as ProfilesService
 
 ## API Routers
 from app.api.v1.profiles import router as ProfilesRouter
@@ -11,6 +11,7 @@ from app.api.v1.profiles import router as ProfilesRouter
 async def lifespan(app: FastAPI):
     ## Connect to mongo client
     await mongo_connect()
+    await ProfilesService.GetProfile()
     yield
     ## Disconnect from mongo client
     await mongo_disconnect()

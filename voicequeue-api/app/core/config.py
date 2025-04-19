@@ -7,7 +7,12 @@ class Settings(BaseSettings):
     APP_NAME: str = "VoiceQueue API (Local Env)"
     MONGODB_URI: str = "mongodb://localhost:27017"
     MONGODB_NAME: str = "voicequeue_db"
+    
+    ## Provided in staging and prod .env files
+    OPENAI_API_KEY: str = "sk-..."
+    OPENAI_API_ORG: str = "org-..."
 
+    ## Settings config
     model_config = SettingsConfigDict(extra="ignore")
 
 settings = Settings()

@@ -1,28 +1,27 @@
 from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
 from app.core.config import settings
-
+from app.logging.logger import logger
 
 ## Client and DB Globals
 client: AsyncIOMotorClient = None
 db: AsyncIOMotorDatabase = None
 
-async def mongo_connect():
+async def mongo_connect() -> None:
     global client, db
 
     client = AsyncIOMotorClient(settings.MONGODB_URI)
     db = client[settings.MONGODB_NAME]
-    print(f"{settings.APP_NAME}: Mongo connection established: {db} {settings.model_dump()}")
+    logger.info(f"{settings.APP_NAME}: Mongo connection established: {db} {settings.model_dump()}")
 
-
-async def mongo_disconnect():
+async def mongo_disconnect() -> None:
     global client
 
     if client is not None:
         client.close()
-        print("Mongo connection closed")
+        logger.info("Mongo connection closed.")
 
-
-def get_db():
-    if db is None:
-        raise RuntimeError("DB uninitialized")
+def get_db() -> None | AsyncIOMotorDatabase:
     return db
+
+def get_client() -> None | AsyncIOMotorClient:
+    return client

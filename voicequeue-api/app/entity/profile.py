@@ -16,3 +16,19 @@ class Profile:
         
         ## Initialize as empty list if profile entity list is not passed
         self.entities: List[ProfileEntity] = entities or []
+
+    def to_dict(self):
+        serialized = {
+            "_id": self.id,
+            "text": self.text,
+            "entities": [entity.to_dict() for entity in self.entities]
+        }
+        return serialized
+    
+    def from_dict(serialized):
+        deserialized = Profile(
+            id = serialized.get("_id"),
+            text = serialized.get("text"),
+            entities = [ProfileEntity.from_dict(entity) for entity in serialized.entities]
+        )
+        return deserialized

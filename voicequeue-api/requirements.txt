@@ -1,6 +1,8 @@
+setuptools 
+wheel
 fastapi
 uvicorn[standard]
 pydantic-settings
 motor
-spacy
+spacy[cuda12x]
 spacy-llm
