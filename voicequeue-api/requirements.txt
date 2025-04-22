@@ -6,3 +6,4 @@ pydantic-settings
 motor
 spacy[cuda12x]
 spacy-llm
+sentence-transformers

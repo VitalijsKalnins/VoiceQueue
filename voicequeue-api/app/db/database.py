@@ -11,7 +11,7 @@ async def mongo_connect() -> None:
 
     client = AsyncIOMotorClient(settings.MONGODB_URI)
     db = client[settings.MONGODB_NAME]
-    logger.info(f"{settings.APP_NAME}: Mongo connection established: {db} {settings.model_dump()}")
+    logger.info(f"{settings.APP_NAME}: Mongo connection established: {db}")
 
 async def mongo_disconnect() -> None:
     global client

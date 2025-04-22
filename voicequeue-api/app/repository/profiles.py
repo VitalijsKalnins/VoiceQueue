@@ -4,7 +4,6 @@ from app.logging.logger import logger
 
 
 class ProfilesRepository():
-    ## Profiles collection index
     COLLECTION = "profiles"
 
     def __init__(self):

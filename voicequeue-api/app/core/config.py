@@ -12,6 +12,18 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str = "sk-..."
     OPENAI_API_ORG: str = "org-..."
 
+    ## Pre-trained spaCy model selection
+    SPACY_MODEL: str = "en"
+    SPACY_LLM_FAMILY: str = "spacy.GPT-4.v3"
+    SPACY_LLM_MODEL: str = "gpt-4o-mini"
+
+    ## NLP embedding model selection
+    ## https://sbert.net/docs/sentence_transformer/pretrained_models.html
+    EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
+
+    ## Disable HuggingFace symlink warning
+    HF_HUB_DISABLE_SYMLINKS_WARNING: bool = True
+
     ## Settings config
     model_config = SettingsConfigDict(extra="ignore")
 
