@@ -10,7 +10,6 @@ class Profiles:
         profile_ent1 = ProfileEntity("football", ProfileEntityType.INTEREST, 0.8, [1, 2, 3])
         new_profile = Profile(123, "I love football.", [profile_ent1])
         serialized = new_profile.to_dict()
-
         ##res = await ProfilesRepository.test_save(serialized)
         ##logger.info(f"result: {res}")
 

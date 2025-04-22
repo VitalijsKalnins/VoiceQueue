@@ -22,6 +22,9 @@ class NERSentimentV1:
     INTERESTS / DISINTERESTS must strictly contain a SUBJECT the INTEREST / DISINTEREST is referring to.
     Do not include additional comments as separate items, only capture the main classification of a given subject.
     i.e: 'I slightly dislike apples, but overall they're not bad!' should only classify the phrase 'I slightly dislike apples.' while ignoring the additional comment.
+    If a given phrase contains an expression regarding a belief or expresses feeling towards a sense of being regarding a subject, classify this accordingly.
+    i.e: 'I believe that aliens are real.' should classify the subject as 'belief in alien existence'.
+    i.e: 'I am a cowboy.' should classify the subject as 'is a cowboy'.
     ONLY Return the JSON array, do not wrap the JSON array in any markdown or syntax such as ```json ... ```.
     Text: <<<{{text}}>>>
     """
