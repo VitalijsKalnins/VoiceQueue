@@ -7,3 +7,4 @@ motor
 spacy[cuda12x]
 spacy-llm
 sentence-transformers
+networkx

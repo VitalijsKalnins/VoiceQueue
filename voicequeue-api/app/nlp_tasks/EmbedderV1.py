@@ -17,8 +17,8 @@ embedder = SentenceTransformer(settings.EMBEDDING_MODEL, model_kwargs={"torch_dt
 ## Embeds entities flagged by NER_SENTIMENT task
 ## Run after voicequeue.NER_SENTIMENT.v1 in the pipeline
 def embed(doc: Doc):
-    for it in doc._.ner_sentiment_items:
-        it['embedding'] = embedder.encode(it['subject'], convert_to_numpy=True)
+    for item in doc._.ner_sentiment_items:
+        item["embedding"] = embedder.encode(item["subject"], convert_to_numpy=True)
     return doc
 
 ## Returns the cosine similarity matrix of embeddings_a and embeddings_b

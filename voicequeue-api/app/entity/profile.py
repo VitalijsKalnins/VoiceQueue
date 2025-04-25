@@ -1,5 +1,7 @@
-from typing import Optional, List
+from typing import Optional, List, Dict, Self
 from app.entity.profile_entity import ProfileEntity
+
+from typing import Dict
 
 class Profile:
     def __init__(
@@ -17,7 +19,7 @@ class Profile:
         ## Initialize as empty list if profile entity list is not passed
         self.entities: List[ProfileEntity] = entities or []
 
-    def to_dict(self):
+    def to_dict(self) -> Dict:
         serialized = {
             "_id": self.id,
             "text": self.text,
@@ -25,10 +27,11 @@ class Profile:
         }
         return serialized
     
-    def from_dict(serialized):
+    @staticmethod
+    def from_dict(serialized: Dict) -> Self:
         deserialized = Profile(
             id = serialized.get("_id"),
             text = serialized.get("text"),
-            entities = [ProfileEntity.from_dict(entity) for entity in serialized.entities]
+            entities = [ProfileEntity.from_dict(entity) for entity in serialized.get("entities")]
         )
         return deserialized

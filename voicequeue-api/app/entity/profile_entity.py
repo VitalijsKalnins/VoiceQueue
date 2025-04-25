@@ -28,6 +28,7 @@ class ProfileEntity:
         }
         return serialized
     
+    @staticmethod
     def from_dict(serialized):
         deserialized = ProfileEntity(
             text = serialized.get("text"),

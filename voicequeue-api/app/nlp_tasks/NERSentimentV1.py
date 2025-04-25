@@ -25,6 +25,8 @@ class NERSentimentV1:
     If a given phrase contains an expression regarding a belief or expresses feeling towards a sense of being regarding a subject, classify this accordingly.
     i.e: 'I believe that aliens are real.' should classify the subject as 'belief in alien existence'.
     i.e: 'I am a cowboy.' should classify the subject as 'is a cowboy'.
+    Do NOT include duplicate entries.
+    i.e. 'I love going to the beach, and exploring the beach.' should only create one entry containing 'the beach' subject.
     ONLY Return the JSON array, do not wrap the JSON array in any markdown or syntax such as ```json ... ```.
     Text: <<<{{text}}>>>
     """
