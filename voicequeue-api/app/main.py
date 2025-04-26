@@ -9,6 +9,7 @@ from app.logging.logger import logger
 
 ## API Routers
 from app.api.v1.profiles import router as ProfilesRouter
+from app.api.v1.matchmaking import router as MatchmakingRouter
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -20,3 +21,4 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 app.include_router(ProfilesRouter, prefix="/v1", tags=["profiles"])
+app.include_router(MatchmakingRouter, prefix="/v1", tags=["matchmaking"])

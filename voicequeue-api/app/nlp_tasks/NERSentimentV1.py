@@ -21,10 +21,13 @@ class NERSentimentV1:
     i.e: 'I love programming and music' should be converted to two separate items where the phrases would be: 'I love programming', 'I love music'.
     INTERESTS / DISINTERESTS must strictly contain a SUBJECT the INTEREST / DISINTEREST is referring to.
     Do not include additional comments as separate items, only capture the main classification of a given subject.
-    i.e: 'I slightly dislike apples, but overall they're not bad!' should only classify the phrase 'I slightly dislike apples.' while ignoring the additional comment.
+    i.e: 'I slightly dislike apples, but overall they're not bad!' should only classify the phrase 'I slightly dislike apples',
+    classsifying the SUBJECT as 'apples' while ignoring the additional comment.
+    i.e: 'I love sewing, it is my favorite pastime.' should only classify the phrase 'I love sewing', classifying the SUBJECT as 'sewing', while ignoring the additional comment.
     If a given phrase contains an expression regarding a belief or expresses feeling towards a sense of being regarding a subject, classify this accordingly.
     i.e: 'I believe that aliens are real.' should classify the subject as 'belief in alien existence'.
     i.e: 'I am a cowboy.' should classify the subject as 'is a cowboy'.
+    i.e: 'I am an adrenaline junkie!' should classify the subject as 'is an adrenaline junkie'.
     Do NOT include duplicate entries.
     i.e. 'I love going to the beach, and exploring the beach.' should only create one entry containing 'the beach' subject.
     ONLY Return the JSON array, do not wrap the JSON array in any markdown or syntax such as ```json ... ```.

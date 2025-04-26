@@ -27,6 +27,14 @@ class Profile:
         }
         return serialized
     
+    def to_response_dict(self) -> Dict:
+        serialized = {
+            "id": self.id,
+            "text": self.text,
+            "entities": [entity.to_response_dict() for entity in self.entities]
+        }
+        return serialized
+    
     @staticmethod
     def from_dict(serialized: Dict) -> Self:
         deserialized = Profile(

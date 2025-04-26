@@ -16,8 +16,10 @@ class Profiles:
         return await ProfilesRepository.get_profiles(profile_ids)
     
     ## to-do: change this method to accept id, raw input str
-    async def set_profile(self, profile: Profile) -> bool:
-        return await ProfilesRepository.set_profile(profile)
+    async def set_profile(self, profile_id: int, text: str) -> bool:
+        new_profile = NLPService.extract_entities(text)
+        new_profile.id = profile_id
+        return await ProfilesRepository.set_profile(new_profile)
 
 ## Profile Service Singleton
 service = Profiles()

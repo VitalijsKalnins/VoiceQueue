@@ -64,7 +64,8 @@ class NLPService:
         for item in doc._.ner_sentiment_items:
             ## Create new ProfileEntity
             extracted_entity = ProfileEntity(
-                text = item["subject"],
+                text = item["text"],
+                subject = item["subject"],
                 type = label_map.get(item["label"], ProfileEntityType.UNKNOWN),
                 sentiment = item["sentiment"],
                 embedding = item["embedding"]
