@@ -1,5 +1,5 @@
-from pydantic import BaseModel, ConfigDict, Field, PositiveInt
-from typing import List, Dict, Annotated
+from pydantic import BaseModel, Field, PositiveInt
+from typing import List, Dict
 
 
 class GetMatchmakingResponse(BaseModel):

@@ -41,7 +41,7 @@ class MatchmakingService:
                 ent_similarity_normalized = round(ent_similarity * 100)
 
                 ## Calculate relative alpha 0 -> 1
-                ## closer to similarity threshold, approaches 0; further to similarity threshold, approaches 1
+                ## closer to similarity threshold, approaches 0; further from similarity threshold, approaches 1
                 ## this is used to further increment / decrement score based on similarity strength from the threshold alpha
                 relative_alpha = (ent_similarity - self.SIMILARITY_ALPHA) / (1 - self.SIMILARITY_ALPHA)
 
@@ -64,9 +64,6 @@ class MatchmakingService:
     ## Converts matched user pairs to dictionary
     async def matchmake(self, users: List[int]) -> Dict:
         res: Dict = {}
-
-        ## Ensure we have an even number of users to matchmake
-        ## to-do:
 
         ## Create the completely connected undirected graph of users
         user_graph = to_undirected(complete_graph(users))

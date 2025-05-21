@@ -50,7 +50,6 @@ class NLPService:
 
     ## Runs text through pipeline, extracts profile entities -> returns profile
     def extract_entities(self, input: str) -> Profile:
-        ## to-do: some input validation stuff here
         doc = self.nlp(input)
 
         ## Label -> ProfileEntityType Map
@@ -93,10 +92,3 @@ class NLPService:
 
 ## NLP Service singleton
 service = NLPService()
-
-# embeddings_a, embeddings_b = [profile_ent.embedding for profile_ent in profile1.entities], [profile_ent.embedding for profile_ent in profile2.entities]
-# similarities = similarity(embeddings_a, embeddings_b)
-
-# for id_x, profile_x in enumerate(profile1.entities):
-#     for id_y, profile_y in enumerate(profile2.entities):
-#         logger.info(f"profile_x entity: {profile_x.text}, profile_y entity: {profile_y.text}, similarity: {similarities[id_x][id_y]}")
